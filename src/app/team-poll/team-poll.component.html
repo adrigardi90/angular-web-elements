@@ -1,8 +1,58 @@
 <div class="container">
   <div class="row justify-content-center text-center">
-      <div class="col-8">
-          poll
+    <div class="col-10">
+      <div class="poll-header">
       </div>
+
+      <div *ngIf="!results">
+        <div class="pt-4 pb-5">
+          <h3>WHAT IS THE BEST TEAM EVER IN THE FOOTBALL HISTORY?</h3>
+        </div>
+
+        <div class="row justify-content-around pt-3">
+          <div class="col-3">
+            <img
+              src="../../assets/rm.png"
+              (click)="vote('rm')">
+          </div>
+
+          <div class="col-3">
+            <img
+              src="../../assets/bcn.png"
+              (click)="vote('bcn')">
+          </div>
+
+          <div class="col-3">
+            <img
+              src="../../assets/question.png"
+              (click)="vote('others')">
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="results" class="mt-5">
+        <h4 class="title">REAL MADRID</h4>
+        <div class="progress mt-3 mb-5">
+          <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="pollResults.rm + '%'" aria-valuemin="0" aria-valuemax="100">
+              {{pollResults.rm}}
+          </div>
+        </div>
+
+        <h4 class="title">FC BARCELONA</h4>
+        <div class="progress mt-3 mb-5">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="pollResults.bcn + '%'" aria-valuemin="0" aria-valuemax="100">
+              {{pollResults.bcn}}
+          </div>
+        </div>
+
+        <h4 class="title">OTHERS</h4>
+        <div class="progress mt-3 mb-5">
+          <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [style.width]="pollResults.others + '%'" aria-valuemin="0" aria-valuemax="100">
+              {{pollResults.others}}
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
-
