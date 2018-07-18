@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-team-poll',
@@ -8,36 +8,22 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class TeamPollComponent implements OnInit {
 
-  poll: any = {
-    rm: 0,
-    bcn: 0,
-    others: 0
-  };
+  @Input() title;
+  @Output() vote = new EventEmitter<string>();
 
-  pollResults: any = {
-    rm: 0,
-    bcn: 0,
-    others: 0
-  };
-
-  total: number = 0;
   results: boolean = false;
+  pollResults;
+
+  options = {
+    rm: 'Real Madrid',
+    bcn: 'FC Barcelona',
+    others: 'Otro equipo'
+  };
 
   constructor() { }
 
   ngOnInit() { }
 
-  vote = (option: string) => {
-    this.poll[option]++;
-    this.total++;
-    this.calculatePool();
-  }
-
-  calculatePool = () => {
-    this.pollResults.rm = (this.poll.rm / this.total) * 100;
-    this.pollResults.bcn = (this.poll.bcn / this.total) * 100;
-    this.pollResults.others = (this.poll.others / this.total) * 100;
-    this.results = !this.results;
-  }
+  _vote = (option: string) => this.vote.next(this.options[option]);
 
 }

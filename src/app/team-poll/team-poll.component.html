@@ -6,26 +6,26 @@
 
       <div *ngIf="!results">
         <div class="pt-4 pb-5">
-          <h3>WHAT IS THE BEST TEAM EVER IN THE FOOTBALL HISTORY?</h3>
+          <h3>{{ title ? title  : 'WHAT IS THE BEST TEAM EVER IN THE FOOTBALL HISTORY?'}}</h3>
         </div>
 
         <div class="row justify-content-around pt-3">
           <div class="col-3">
             <img
               src="../../assets/rm.png"
-              (click)="vote('rm')">
+              (click)="_vote('rm')">
           </div>
 
           <div class="col-3">
             <img
               src="../../assets/bcn.png"
-              (click)="vote('bcn')">
+              (click)="_vote('bcn')">
           </div>
 
           <div class="col-3">
             <img
               src="../../assets/question.png"
-              (click)="vote('others')">
+              (click)="_vote('others')">
           </div>
         </div>
       </div>

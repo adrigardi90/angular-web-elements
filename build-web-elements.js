@@ -10,6 +10,7 @@ const concat = require('concat');
     ]
     await fs.ensureDir('web-elements')
     await concat(files, 'web-elements/my-element.js');
-    await fs.copyFile('./dist/angular-web-elements/styles.css', 'web-elements/styles.css')
+    await fs.copyFile('./dist/angular-web-elements/styles.css', 'web-elements/styles.css');
+    await fs.copy('./dist/angular-web-elements/assets/', 'web-elements/assets/' );
 
 })()

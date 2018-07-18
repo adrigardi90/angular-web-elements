@@ -17,7 +17,6 @@ import { TeamPollComponent } from './team-poll/team-poll.component';
   entryComponents: [
     TeamPollComponent
   ],
-  bootstrap: [AppComponent]
 })
 export class AppModule {
 
